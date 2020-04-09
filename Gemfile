@@ -14,6 +14,8 @@ gem 'devise'
 gem 'omniauth-oauth2'
 gem 'omniauth-strava'
 
+gem 'faraday'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

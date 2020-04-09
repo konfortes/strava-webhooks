@@ -197,6 +197,7 @@ DEPENDENCIES
   byebug
   devise
   dotenv-rails
+  faraday
   listen (>= 3.0.5, < 3.2)
   omniauth-oauth2
   omniauth-strava

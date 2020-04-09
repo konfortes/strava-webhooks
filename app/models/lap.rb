@@ -1,0 +1,2 @@
+class Lap < OpenStruct
+end

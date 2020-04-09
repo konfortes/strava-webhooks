@@ -5,9 +5,7 @@ module Strava
     end
 
     def retrieve_activity(id)
-      fetch("activity:#{id}", ttl: 900) do
-        @client.activity(id)
-      end
+      @client.activity(id)
     end
 
     def update_activity(id, params = nil)
