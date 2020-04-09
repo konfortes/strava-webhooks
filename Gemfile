@@ -7,7 +7,6 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
 
 gem 'pg'
-gem 'redis'
 
 gem 'strava-ruby-client'
 

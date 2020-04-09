@@ -16,9 +16,20 @@ If browsed from browser, a Devise auth cookie will be sent back.
 ## Webhooks subscription
 
 ```bash
+# get current subscription
+curl https://www.strava.com/api/v3/push_subscriptions \
+    -d client_id=123 \
+    -d client_secret=112233
+
+# delete subscription
+curl -X DELETE https://www.strava.com/api/v3/push_subscriptions/142454 \
+-F client_id=123 \
+-F client_secret=112233
+
+# create subscription
 curl -X POST https://www.strava.com/api/v3/push_subscriptions \
-      -F client_id=5 \
-      -F client_secret=7b2946535949ae70f015d696d8ac602830ece412 \
+      -F client_id=123 \
+      -F client_secret=112233 \
       -F 'callback_url=https://stravooks.herokuapp.com/webhooks' \
-      -F 'verify_token=STRAVA'
+      -F 'verify_token=xxx'
 ```

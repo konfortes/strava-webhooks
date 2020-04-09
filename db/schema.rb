@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_125306) do
+ActiveRecord::Schema.define(version: 2020_04_09_152700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "external_id"
+    t.string "athlete_id"
+    t.string "activity_type"
+    t.string "name"
+    t.string "description"
+    t.string "start_date"
+    t.float "distance"
+    t.float "average_speed"
+    t.integer "moving_time"
+    t.integer "elapsed_time"
+    t.float "average_heartrate"
+    t.integer "kudos_count"
+    t.jsonb "start_latlng"
+    t.jsonb "end_latlng"
+    t.string "encoded_path"
+    t.boolean "commute"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "index_activities_on_external_id", unique: true
+  end
+
+  create_table "failed_events", force: :cascade do |t|
+    t.boolean "processed", default: false
+    t.string "aspect_type"
+    t.string "object_type"
+    t.string "object_id"
+    t.string "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,4 +65,5 @@ ActiveRecord::Schema.define(version: 2020_04_09_125306) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  add_foreign_key "activities", "users", column: "athlete_id", primary_key: "uid"
 end
