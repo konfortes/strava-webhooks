@@ -3,9 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
+
+gem 'pg'
+gem 'redis'
+
+gem 'strava-ruby-client'
 
 gem 'devise'
 gem 'omniauth-oauth2'

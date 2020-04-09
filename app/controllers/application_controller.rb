@@ -10,12 +10,12 @@ class ApplicationController < ActionController::API
   end
 
   def strava_client
-    # @strava_client ||= begin
-    #   user = User.where(uid: params[:owner_id]).first
-    #   access_token = user.fresh_authorization_token
+    @strava_client ||= begin
+      user = User.where(uid: params[:owner_id]).first
+      access_token = user.fresh_authorization_token
 
-    #   Strava::Client.new(access_token: access_token)
-    # end
+      Strava::Client.new(access_token: access_token)
+    end
   end
 
   def health
