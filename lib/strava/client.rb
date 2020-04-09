@@ -31,10 +31,8 @@ module Strava
       @client.update_an_activity(id, params)
     end
 
-    def retrieve_current_athlete(current_user_id)
-      fetch("athlete:current:#{current_user_id}", ttl: 1800) do
-        @client.retrieve_current_athlete
-      end
+    def retrieve_current_athlete
+      @client.athlete
     end
 
     # def retrieve_athlete(id)
