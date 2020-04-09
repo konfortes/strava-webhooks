@@ -43,10 +43,6 @@ module Strava
     #   end
     # end
 
-    def retrieve_current_athlete
-      @client.athlete
-    end
-
     private
 
     def day_range(date)
