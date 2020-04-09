@@ -10,7 +10,7 @@ class CallbacksController < ActionController::API
 
   def hello
     athlete = strava_client.retrieve_current_athlete
-    render json: athlete
+    render plain: "Yo #{athlete.firstname} #{athlete.lastname}. Your activivities will be enriched with extra data from now on"
   end
 
   def strava_client

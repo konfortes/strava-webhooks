@@ -19,6 +19,6 @@ class ApplicationController < ActionController::API
   end
 
   def health
-    render json: {status: 'OK'}
+    render json: { status: 'OK' }
   end
 end
