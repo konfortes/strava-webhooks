@@ -34,7 +34,9 @@ class WebhooksController < ApplicationController
   end
 
   def authorize_request!
-    raise 'mismatch verification token' unless params[:verification_token] == Rails.application.secrets.strava_webhook_verification_code
+    unless params[:verification_token] == Rails.application.secrets.strava_webhook_verification_code
+      raise 'mismatch verification token'
+    end
   end
 
   def failed_event
