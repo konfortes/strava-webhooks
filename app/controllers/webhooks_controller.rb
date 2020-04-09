@@ -1,5 +1,5 @@
 class WebhooksController < ApplicationController
-  before_action :authorize_request!
+  # before_action :authorize_request!
   rescue_from Strava::Errors::Fault, with: :failed_event
 
   def hook
