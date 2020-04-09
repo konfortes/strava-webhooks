@@ -5,6 +5,10 @@ class CallbacksController < ApplicationController
   end
 
   def failure
-    render json: params
+    render json: params, status: 500
+  end
+
+  def hello
+    render json: current_user
   end
 end

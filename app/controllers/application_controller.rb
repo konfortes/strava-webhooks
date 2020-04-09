@@ -17,4 +17,8 @@ class ApplicationController < ActionController::API
     #   Strava::Client.new(access_token: access_token)
     # end
   end
+
+  def health
+    render json: {status: 'OK'}
+  end
 end
