@@ -17,7 +17,7 @@ If browsed from browser, a Devise auth cookie will be sent back.
 
 ```bash
 # get current subscription
-curl https://www.strava.com/api/v3/push_subscriptions \
+curl -G https://www.strava.com/api/v3/push_subscriptions \
     -d client_id=123 \
     -d client_secret=112233
 

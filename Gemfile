@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.0'
 
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
@@ -35,4 +35,4 @@ group :test do
   gem 'rspec'
 end
 
-gem 'bundler', '~> 2.1.4'
+gem 'bundler', '~> 2.1.2'
