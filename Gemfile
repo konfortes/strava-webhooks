@@ -16,8 +16,12 @@ gem 'omniauth-strava'
 
 gem 'faraday'
 
+gem 'redis'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+gem 'dry-struct'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

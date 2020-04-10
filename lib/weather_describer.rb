@@ -7,7 +7,7 @@ class WeatherDescriber
   def describe
     return unless outdoor_activity?
 
-    weather = @weather_client.current(@strava_activity.start_latlng)
+    weather = @weather_client.current(@strava_activity.start_latlng.join(','))
     verbalized_weather(weather)
   end
 

@@ -3,13 +3,14 @@ class WeatherClient
   API_KEY = Rails.application.secrets.weather_api_key
 
   class << self
-    def current(latlng)
-      query = latlng.join(',')
+    def current(query)
       response = Faraday.get "#{API_URL}?access_key=#{API_KEY}&query=#{query}"
 
       handle_failed_request(response) && return unless response.status == 200
 
-      JSON(response.body).with_indifferent_access[:current]
+      parased_response = JSON(response.body).with_indifferent_access
+      local_time = parased_response.dig(:location, :localtime)
+      parased_response[:current].merge(local_time: local_time)
     end
 
     def handle_failed_request(response)
