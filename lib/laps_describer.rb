@@ -14,7 +14,11 @@ class LapsDescriber
   private
 
   def laps
-    @laps ||= ((@activity.laps || []).map { |lap| ::Lap.new(lap) }.reject! { |lap| lap.moving_time < 20 } || [])
+    @laps ||= begin
+      ((@activity.laps || [])
+        .map { |lap| ::Lap.new(lap) }
+        .reject { |lap| lap.moving_time < 20 } || [])
+    end
   end
 
   def classic_pattern?
@@ -58,7 +62,7 @@ class LapsDescriber
       if distance >= 1000
         "#{UnitsConverter.meters_to_kms(distance)}km"
       else
-        "#{distance}m"
+        "#{distance.round}m"
       end
     else # time based
       UnitsConverter.seconds_to_humanized_time(laps.second.moving_time)
