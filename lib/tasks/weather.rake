@@ -1,6 +1,9 @@
 namespace :weather do
   desc 'Sample weather and save to redis'
   task :sample => :environment do
+    puts 'skipping wheather sampling'
+    return
+
     puts 'sampling weather...'
     SUPPORTED_LOCATION_QUERIES = ['Tel Aviv'].freeze
 
